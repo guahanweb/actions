@@ -16,7 +16,7 @@ For example, if you had an NPM script titled `build` that would create your arti
 
 ```
 action "Build" {
-  uses = "guahanweb/actions/node-app"
+  uses = "guahanweb/actions/node-app@master"
   args = "run build"
 }
 ```
@@ -35,7 +35,7 @@ Under the covers, this is essentially going to run `npm run build` or `yarn buil
 
 ```
 action "Lint" {
-  uses = "guahanweb/actions/node-app"
+  uses = "guahanweb/actions/node-app@master"
   env = {
     PKG_MANAGER = "yarn"
   }
@@ -66,7 +66,7 @@ This task requires the `GITHUB_TOKEN` secret from your action, or it will not ha
 
 ```
 action "GH Pages" {
-  uses = "guahanweb/actions/node-app"
+  uses = "guahanweb/actions/node-app@master"
   secrets = ["GITHUB_TOKEN"]
   args = "gh-pages"
 }
@@ -104,7 +104,7 @@ workflow "Build and Deploy Pages" {
 }
 
 action "Lint" {
-  uses = "guahanweb/actions/node-app"
+  uses = "guahanweb/actions/node-app@master"
   env = {
     PKG_MANAGER = "yarn"
   }
@@ -112,7 +112,7 @@ action "Lint" {
 }
 
 action "Build" {
-  uses = "guahanweb/actions/node-app"
+  uses = "guahanweb/actions/node-app@master"
   env = {
     PKG_MANAGER = "yarn"
   }
@@ -120,7 +120,7 @@ action "Build" {
 }
 
 action "Test" {
-  uses = "guahanweb/actions/node-app"
+  uses = "guahanweb/actions/node-app@master"
   env = {
     PKG_MANAGER = "yarn"
   }
@@ -128,7 +128,7 @@ action "Test" {
 }
 
 action "Deploy Pages" {
-  uses = "guahanweb/actions/node-app"
+  uses = "guahanweb/actions/node-app@master"
   secrets = ["GITHUB_TOKEN"]
   args = "gh-pages"
   needs = ["Lint", "Build", "Test"]
